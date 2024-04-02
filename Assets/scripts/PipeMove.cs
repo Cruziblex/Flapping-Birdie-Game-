@@ -20,7 +20,6 @@ public class PipeMove : MonoBehaviour
         
         if (transform.position.x < deadPoint)
         {
-            Debug.Log("Pipe Deleted");
             Destroy(gameObject);
         }
     }

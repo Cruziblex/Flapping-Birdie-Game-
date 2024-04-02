@@ -18,7 +18,12 @@ public class LogicScript : MonoBehaviour
     public GameObject skins;
     public string[] skinNames;
     public Animator birdAnimator;
+    private AudioManager audioManager;
 
+    public void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     void Start()
     {
         Time.timeScale = 0;
@@ -34,10 +39,8 @@ public class LogicScript : MonoBehaviour
     {
         updateHighScore();
         setSkin();
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            startGame();
-        }
+        startGameOnSpacePress();
+
     }
 
 
@@ -104,11 +107,23 @@ public class LogicScript : MonoBehaviour
 
         }
     }
-    public void startGame()
+    public void startGameOnSpacePress()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && (GameObject.Find("Start Text") != null))
+        {
+            timeScale1();
+            GameObject.Find("Start Text").SetActive(false);
+            audioManager.playSoundLoop(audioManager.birdIdle);
+        }
+
+    }
+    public void timeScale1()
     {
         Time.timeScale = 1;
-        GameObject.Find("Start Text").SetActive(false);
     }
-
+    public void timescale0()
+    {
+        Time.timeScale = 0;
+    }
 }
  

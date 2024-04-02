@@ -10,26 +10,31 @@ public class BirdScript : MonoBehaviour
     public bool BirdIsAlive = true;
     private SpriteRenderer spriteRenderer;
     public Animator animator;
-    public AudioSource flapSound;
-    public AudioSource birdCrash;
+    public GameObject spaceText;
+    private AudioManager audioManager;
 
-
+    public void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     // Start is called before the first frame update
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && BirdIsAlive)
+        //idleFlappingStart();
+        if (Input.GetKeyDown(KeyCode.Space) && BirdIsAlive && (Time.timeScale == 1))
         {
             //Add velocity to bird when space is pressed
             rigidBody.velocity = Vector2.up * upwardFlap;
             animator.SetTrigger("spaceButton");
-            flapSound.Play();
+            audioManager.playSound(audioManager.birdFlap);
 
         }
         //Pulls up game over screen if bird dies
@@ -39,6 +44,8 @@ public class BirdScript : MonoBehaviour
         }
         //Sets the climb speed to use for animations
         animator.SetFloat("climbSpeed", rigidBody.velocity.y);
+
+
 
     }
 
@@ -50,10 +57,8 @@ public class BirdScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         BirdIsAlive = false;
-        birdCrash.Play();
+        audioManager.playSound(audioManager.birdCrash);
+        audioManager.stopSound();
     }
-
-    // Set skin saved to memory
-
 
 }

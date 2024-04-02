@@ -8,8 +8,14 @@ public class PauseMenuScript : MonoBehaviour
     public GameObject PauseMenu;
     public bool isPaused;
     public GameObject gameOverScreen;
+    private AudioManager audioManager;
 
-    
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,26 +26,26 @@ public class PauseMenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))//Pause or resume game on ËScape:
+        if ((GameObject.Find("Start Text") == null))
         {
-            if (gameOverScreen.activeSelf != true)
+            if (Input.GetKeyDown(KeyCode.Escape))//Pause or resume game on Ecape:
             {
-                if (isPaused)
+                if (gameOverScreen.activeSelf != true)
                 {
-                    ResumeGame();
+                    if (isPaused)
+                    {
+                        ResumeGame();
+                    }
+                    else
+                    {
+                        PauseGame();
+                    }
                 }
-                else
-                {
-                    PauseGame();
-                }
+
+
             }
-           
-           
         }
-        else
-        {
-           
-        }
+        
     }
 
     public void PauseGame()//Pause the Game
@@ -47,6 +53,7 @@ public class PauseMenuScript : MonoBehaviour
         PauseMenu.SetActive(true);
         Time.timeScale = 0;
         isPaused = true;
+        audioManager.muteSfxLoop();
     }
 
     public void ResumeGame() // Resume The game
@@ -54,6 +61,7 @@ public class PauseMenuScript : MonoBehaviour
         PauseMenu.SetActive(false);
         Time.timeScale = 1;
         isPaused = false;
+        audioManager.unmuteSfxLoop();
     }
 
     public void MainMenuButton()

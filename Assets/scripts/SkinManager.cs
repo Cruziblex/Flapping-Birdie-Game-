@@ -1,89 +1,105 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class SkinManager : MonoBehaviour
 {
     public int childIndex;
     public MainMenuLogic menuLogic;
-    private bool hasActionBeenPerformed = false;
+    private bool SkinsAreUnlocked = false;
+    private GameObject[] skin;
+    int highScore;
 
     void Start()
     {
+        // Instantiate the skin GameObject array for use later
+        skin = new GameObject[gameObject.transform.childCount];
+        // Retrieve highscore from memory
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
         childIndex = gameObject.transform.GetSiblingIndex();
         menuLogic = GameObject.FindGameObjectWithTag("Menu Logic").GetComponent<MainMenuLogic>();
+        highScore = 75;
     }
 
     private void Update()
     {
-        selectCurrentSkin();
+        populateChildrenSkins();
     }
 
     //Selects the skin name and saves it to memory
-    public void saveSkin()
+    public void saveSkin(int index)
     {
 
-        PlayerPrefs.SetInt("Skin Index", childIndex);
 
-        //For Debugging
-        //Debug.Log("This is what is saved: " + (PlayerPrefs.GetInt("Skin Index", 0)));
 
     }
 
     void OnDisable()
     {
-        hasActionBeenPerformed = false;
-    }
-    public void SimulateMouseClick()
-    {
-        // Create a pointer event data
-        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
-
-        // Set the position of the pointer event (use the center of the current GameObject)
-        pointerEventData.position = Camera.main.WorldToScreenPoint(transform.position);
-
-        // Perform a raycast to check for objects under the pointer
-        RaycastResult raycastResult = new RaycastResult();
-        raycastResult.gameObject = gameObject;
-
-        // Simulate a pointer down event
-        ExecuteEvents.Execute(gameObject, pointerEventData, ExecuteEvents.pointerDownHandler);
-
-        // Simulate a pointer click event
-        ExecuteEvents.Execute(gameObject, pointerEventData, ExecuteEvents.pointerClickHandler);
-
-        // Simulate a pointer up event
-        ExecuteEvents.Execute(gameObject, pointerEventData, ExecuteEvents.pointerUpHandler);
+        SkinsAreUnlocked = false;
     }
 
-    private void selectCurrentSkin()
+
+    //Iterates over the skins to populate the skins gameobject array once the skins menu becomes enabled
+    private void populateChildrenSkins()
     {
-        if (!hasActionBeenPerformed)
+        if (!SkinsAreUnlocked)
         {
             if (gameObject != null)
             {
-                if (PlayerPrefs.GetInt("Skin Index", 0) == childIndex)
+                if (isActiveAndEnabled)
                 {
-                    if (isActiveAndEnabled && (gameObject.GetComponent<UnityEngine.UI.Button>().IsInteractable() == true))
+                    for (int i = 0; i < gameObject.transform.childCount; i++)
                     {
-                        SimulateMouseClick();
-                        //Debug.Log("This should appear when object becomes active.Index is: " + childIndex);
+                        skin[i] = transform.GetChild(i).gameObject;
                     }
-
+                    unlockSkins();
                 }
-
-
             }
-
-            // Set the flag to indicate that the action has been performed
-            hasActionBeenPerformed = true;
+            //Indicates this action has been performed so it Update() won't run it again.
+            SkinsAreUnlocked = true;
         }
+    }
+ 
 
-    }  
+    private void unlockSkins()
+    {
+        if (highScore >= 10)
+        {
+            skin[1].GetComponent<Button>().interactable = true;
+            skin[1].GetComponent<EventTrigger>().enabled = true;
+        }
+        else
+        {
+            skin[1].GetComponent<EventTrigger>().enabled = false;
+        }
+        if (highScore >= 25)
+        {
+            skin[2].GetComponent<Button>().interactable = true;
+            skin[2].GetComponent<EventTrigger>().enabled = true;
+        }
+        else
+        {
+            skin[2].GetComponent<EventTrigger>().enabled = false;
+        }
+        if (highScore >= 50)
+        {
+            skin[3].GetComponent<Button>().interactable = true;
+            skin[3].GetComponent<EventTrigger>().enabled = true;
+        }
+        else
+        {
+            skin[3].GetComponent<EventTrigger>().enabled = false;
+        }
+        if (highScore >= 100)
+        {
+            skin[4].GetComponent<Button>().interactable = true;
+            skin[4].GetComponent<EventTrigger>().enabled = true;
+        }
+        else
+        {
+            skin[4].GetComponent<EventTrigger>().enabled = false;
+        }
+    }
 
 }

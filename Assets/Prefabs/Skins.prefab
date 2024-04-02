@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7675090706897353692}
+  - component: {fileID: 5552170359001349968}
   m_Layer: 0
   m_Name: Skins
   m_TagString: Untagged
@@ -36,6 +37,20 @@ Transform:
   - {fileID: 3800382461776259303}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5552170359001349968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293594432065644858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12ba303f1c6a22740a607e96cab457f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  childIndex: 0
+  menuLogic: {fileID: 0}
 --- !u!1 &2638422140863338199
 GameObject:
   m_ObjectHideFlags: 0
@@ -48,7 +63,8 @@ GameObject:
   - component: {fileID: 7119311712182213416}
   - component: {fileID: 3244390953477064846}
   - component: {fileID: 8338054798576763564}
-  - component: {fileID: 888222859475949888}
+  - component: {fileID: 6416444159496639800}
+  - component: {fileID: 2281589886721621818}
   m_Layer: 0
   m_Name: Blue Bird
   m_TagString: Untagged
@@ -157,8 +173,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 888222859475949888}
-        m_TargetAssemblyTypeName: SkinManager, Assembly-CSharp
+      - m_Target: {fileID: 2281589886721621818}
+        m_TargetAssemblyTypeName: SkinSaver, Assembly-CSharp
         m_MethodName: saveSkin
         m_Mode: 1
         m_Arguments:
@@ -169,7 +185,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &888222859475949888
+--- !u!114 &6416444159496639800
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,11 +194,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 2638422140863338199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12ba303f1c6a22740a607e96cab457f8, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childIndex: 0
-  menuLogic: {fileID: 0}
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &2281589886721621818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2638422140863338199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc6204e4680c05049af27f4a656a6146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5928875211019439569
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,7 +254,8 @@ GameObject:
   - component: {fileID: 8985572892020535538}
   - component: {fileID: 856289843540548504}
   - component: {fileID: 613360783963733344}
-  - component: {fileID: 400920587652898455}
+  - component: {fileID: 5675606628334653269}
+  - component: {fileID: 490547578378224501}
   m_Layer: 0
   m_Name: Brown Bird
   m_TagString: Untagged
@@ -304,8 +364,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 400920587652898455}
-        m_TargetAssemblyTypeName: SkinManager, Assembly-CSharp
+      - m_Target: {fileID: 490547578378224501}
+        m_TargetAssemblyTypeName: SkinSaver, Assembly-CSharp
         m_MethodName: saveSkin
         m_Mode: 1
         m_Arguments:
@@ -316,7 +376,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &400920587652898455
+--- !u!114 &5675606628334653269
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -325,11 +385,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 5928875211019439569}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12ba303f1c6a22740a607e96cab457f8, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childIndex: 0
-  menuLogic: {fileID: 0}
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &490547578378224501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928875211019439569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc6204e4680c05049af27f4a656a6146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6069580157517146739
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +445,8 @@ GameObject:
   - component: {fileID: 4264653807644376878}
   - component: {fileID: 2815061300148556803}
   - component: {fileID: 3702378117043172741}
-  - component: {fileID: 2697045025423814987}
+  - component: {fileID: 4948758596388568478}
+  - component: {fileID: 8724075319281492539}
   m_Layer: 0
   m_Name: Dragon Bird
   m_TagString: Untagged
@@ -451,8 +555,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2697045025423814987}
-        m_TargetAssemblyTypeName: SkinManager, Assembly-CSharp
+      - m_Target: {fileID: 8724075319281492539}
+        m_TargetAssemblyTypeName: SkinSaver, Assembly-CSharp
         m_MethodName: saveSkin
         m_Mode: 1
         m_Arguments:
@@ -463,7 +567,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2697045025423814987
+--- !u!114 &4948758596388568478
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -472,11 +576,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 6069580157517146739}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12ba303f1c6a22740a607e96cab457f8, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childIndex: 0
-  menuLogic: {fileID: 0}
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &8724075319281492539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6069580157517146739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc6204e4680c05049af27f4a656a6146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7665506704553202346
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,7 +636,8 @@ GameObject:
   - component: {fileID: 7021602348148650276}
   - component: {fileID: 1706750680416830866}
   - component: {fileID: 1624361659459292278}
-  - component: {fileID: 6472992763898147938}
+  - component: {fileID: 7061211027803712406}
+  - component: {fileID: 4286887345977786030}
   m_Layer: 0
   m_Name: Red Bird
   m_TagString: Untagged
@@ -598,8 +746,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6472992763898147938}
-        m_TargetAssemblyTypeName: SkinManager, Assembly-CSharp
+      - m_Target: {fileID: 4286887345977786030}
+        m_TargetAssemblyTypeName: SkinSaver, Assembly-CSharp
         m_MethodName: saveSkin
         m_Mode: 1
         m_Arguments:
@@ -610,7 +758,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6472992763898147938
+--- !u!114 &7061211027803712406
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -619,11 +767,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 7665506704553202346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12ba303f1c6a22740a607e96cab457f8, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childIndex: 0
-  menuLogic: {fileID: 0}
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &4286887345977786030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7665506704553202346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc6204e4680c05049af27f4a656a6146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9187200947999121338
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,8 +827,8 @@ GameObject:
   - component: {fileID: 3084313797826152098}
   - component: {fileID: 6384603624560755129}
   - component: {fileID: 2769686678141535138}
-  - component: {fileID: 8109906244976900899}
-  - component: {fileID: 6361573232470255498}
+  - component: {fileID: 8343249010418779285}
+  - component: {fileID: 7778154528074575390}
   m_Layer: 0
   m_Name: Yellow Bird
   m_TagString: Untagged
@@ -746,8 +937,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8109906244976900899}
-        m_TargetAssemblyTypeName: SkinManager, Assembly-CSharp
+      - m_Target: {fileID: 7778154528074575390}
+        m_TargetAssemblyTypeName: SkinSaver, Assembly-CSharp
         m_MethodName: saveSkin
         m_Mode: 1
         m_Arguments:
@@ -758,21 +949,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8109906244976900899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9187200947999121338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12ba303f1c6a22740a607e96cab457f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  childIndex: 0
-  menuLogic: {fileID: 0}
---- !u!114 &6361573232470255498
+--- !u!114 &8343249010418779285
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -790,14 +967,42 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: Play
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgumentAssemblyTypeName: 
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &7778154528074575390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9187200947999121338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc6204e4680c05049af27f4a656a6146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

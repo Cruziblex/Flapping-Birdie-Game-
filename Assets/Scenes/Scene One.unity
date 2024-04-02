@@ -2584,6 +2584,10 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.26
       objectReference: {fileID: 0}
+    - target: {fileID: 3806231489450647496, guid: 81f19e24dda54f9419a61928584a2dc7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7336586346816189843, guid: 81f19e24dda54f9419a61928584a2dc7, type: 3}
       propertyPath: Loop
       value: 0

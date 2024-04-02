@@ -22,14 +22,16 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("AudioManager loaded " + sfxIsOn + " to sfxIsOn and " + musicIsOn + " to musicIsOn");
+        
     }
     private void Start()
     {
         sfxIsOn = PlayerPrefs.GetString("sfxIsOn", "Default");
         musicIsOn = PlayerPrefs.GetString("musicIsOn", "Default");
+        Debug.Log("This is what is saved to memory by default: Music =" + musicIsOn + " SFX = " + sfxIsOn);
         loadSavedMusicSettings();
         loadSavedSfxSettings();
+        Debug.Log("AudioManager loaded " + sfxIsOn + " to sfxIsOn and " + musicIsOn + " to musicIsOn");
     }
 
     public void Update()
@@ -73,7 +75,7 @@ public class AudioManager : MonoBehaviour
 
     public void playSoundLoop(AudioClip clip)
     {
-        if (sfxIsOn == "True")
+        if (sfxIsOn == "True" || sfxIsOn == "Default")
         {
             sfxLoop.clip = clip;
             sfxLoop.Play();
@@ -85,8 +87,9 @@ public class AudioManager : MonoBehaviour
     {
         if (sfxIsOn == "True" || sfxIsOn == "Default")
         {
+            sfxLoop.Play();
             sfxSource.mute = false;
-            sfxLoop.mute = false;
+
         }
         else if (sfxIsOn == "False")
         {

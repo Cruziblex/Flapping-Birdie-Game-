@@ -97,4 +97,12 @@ public class MainMenuLogic : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    public void quitGame()
+    {
+        Application.Quit();
+    }
+    public void clearAllPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }

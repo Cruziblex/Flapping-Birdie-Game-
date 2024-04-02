@@ -4,21 +4,28 @@ using UnityEngine.UI;
 
 public class SkinManager : MonoBehaviour
 {
-    public int childIndex;
-    public MainMenuLogic menuLogic;
     private bool SkinsAreUnlocked = false;
     private GameObject[] skin;
     int highScore;
+    private int[] unlockPoints;
+    public int pointGap;
 
     void Start()
     {
+        pointGap = 20;
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
         // Instantiate the skin GameObject array for use later
         skin = new GameObject[gameObject.transform.childCount];
+        // Instantiate the levels needed to unlock skins according to how many skins there are
+        unlockPoints = new int[gameObject.transform.childCount - 1];
+        // Set skin unlock points to every 15 points
+        for (int i = 0; i < unlockPoints.Length; i++)
+        {
+            unlockPoints[i] = pointGap;
+            pointGap += 20;
+        }
         // Retrieve highscore from memory
-        highScore = PlayerPrefs.GetInt("HighScore", 0);
-        childIndex = gameObject.transform.GetSiblingIndex();
-        menuLogic = GameObject.FindGameObjectWithTag("Menu Logic").GetComponent<MainMenuLogic>();
-        highScore = 75;
+
     }
 
     private void Update()
@@ -64,6 +71,22 @@ public class SkinManager : MonoBehaviour
 
     private void unlockSkins()
     {
+        for (int i = 0; i < (gameObject.transform.childCount - 1); i++)
+        {
+            if ((highScore >= unlockPoints[i]))
+            {
+                skin[i + 1].GetComponent<Button>().interactable = true;
+                skin[i + 1].GetComponent<EventTrigger>().enabled = true;
+                
+            }
+            else
+            {
+                skin[i + 1].GetComponent<EventTrigger>().enabled = false;
+            }
+            Debug.Log("This is iteration " + i + " This is the highscore saved: " + highScore + " this is what this iteration shows for unlockpoints: " + unlockPoints[i] + "This is the skin saved in this iteration: " + skin[i].name);
+        }
+
+/*
         if (highScore >= 10)
         {
             skin[1].GetComponent<Button>().interactable = true;
@@ -100,6 +123,7 @@ public class SkinManager : MonoBehaviour
         {
             skin[4].GetComponent<EventTrigger>().enabled = false;
         }
+*/
     }
 
 }
